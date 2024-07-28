@@ -1,0 +1,627 @@
+<!DOCTYPE html>
+<!--
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit this template
+-->
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css" rel="stylesheet"/>
+
+        <style>
+            *{
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+            }
+
+            html, body{
+                height: 100vh;
+                width: 100%;
+                background-color: #E0ECF8;
+                font-family: gilroy;
+                overflow-x: hidden;
+            }
+
+            .nav{
+                height: 15vh;
+                width: 100%;
+                background-color: white;
+                box-shadow: 0px 10px 10px #00000017;
+                position: fixed;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                padding: 0 1vw;
+                z-index: 99;
+            }
+
+            .nav .logo img{
+                height: 15vh;
+            }
+
+            .nav .nav-center ul{
+                display: flex;
+                align-items: center;
+                justify-content: space-around;
+                gap: 2vw;
+            }
+
+            .nav .nav-center ul li{
+                list-style: none;
+                cursor: pointer;
+                font-family: gilroy;
+                position: relative;
+                overflow: hidden;
+            }
+
+            .nav .nav-center ul li:before{
+                content: "";
+                height: 1px;
+                width: 100%;
+                background-color: #000;
+                position: absolute;
+                bottom: 0;
+                transform: translateX(-100%);
+                transition: transform ease 0.5s;
+            }
+            .nav .nav-center ul li:first-child:before{
+                display: none;
+            }
+
+            .nav .nav-center ul li:hover:before{
+                transform: translateX(0%);
+            }
+
+            .nav .nav-center ul li a{
+                text-decoration: none;
+                color: black;
+            }
+
+            .nav .nav-right{
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                flex-direction: column;
+                gap: 1vh;
+                border: 1px solid #00000017;
+                padding: 1vh;
+                border-radius: 5px;
+                background-color: #f3f7fc;
+            }
+
+            .nav .nav-right button{
+                height: 5vh;
+                width: 4vw;
+                background-color: white;
+                border: 1px solid #00000058;
+                border-radius: 5px;
+                font-family: gilroy;
+                text-transform: capitalize;
+                cursor: pointer;
+                transition: all ease 0.5s;
+            }
+
+            .nav .nav-right button:hover{
+                background-color: #E0ECF8;
+            }
+
+            .main .page1{
+                min-height: 100vh;
+                width: 100%;
+
+            }
+
+            .page1 .features{
+                height: 75vh;
+                width: 100%;
+                position: relative;
+            }
+
+            .page1 .features img{
+                margin-top: 8vh;
+                height: 100%;
+                width: 100%;
+                object-fit: contain;
+            }
+
+            .page1 .features .feature-buttons{
+                height: 80%;
+                width: 100%;
+                position: absolute;
+                top: 20%;
+                z-index: 88;
+
+            }
+
+            .page1 .features .feature-buttons .button{
+                height: 25vh;
+                width: 25vh;
+                position: absolute;
+                cursor: pointer;
+            }
+            .page1 .features .feature-buttons #button1{
+                left: 18%;
+            }
+            .page1 .features .feature-buttons #button2{
+                left: 32%;
+            }
+            .page1 .features .feature-buttons #button3{
+                left: 51%;
+            }
+            .page1 .features .feature-buttons #button4{
+                left: 66%;
+            }
+            .page1 .features .feature-buttons #button5{
+                left: 82%;
+                top: 10vh;
+            }
+            .page1 .features .feature-buttons #button6{
+                left: 82%;
+                top: 36vh;
+            }
+            .page1 .features .feature-buttons #button7{
+                left: 4%;
+                top: 36vh;
+            }
+            .page1 .features .feature-buttons #button8{
+                left: 5%;
+                top: 9vh;
+            }
+
+            .page1 .features .feature-buttons .button a{
+                height: 100%;
+                width: 100%;
+                position: absolute;
+            }
+
+            .page1 .features .login-button, .signup-button{
+                height: 6vh;
+                width: 10vw;
+                background-color: rgb(243, 237, 183);
+                position: absolute;
+                border-radius: 5px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                text-transform: uppercase;
+            }
+
+            .page1 .features .login-button {
+                bottom: 2%;
+                left: 39%;
+            }
+            .page1 .features .signup-button {
+                bottom: 2%;
+                left: 50%;
+            }
+
+            .page1 .features .login-button a, .signup-button a{
+                text-decoration: none;
+                color: black;
+                position: absolute;
+                z-index: 88;
+            }
+
+
+            .page1 .sections{
+                height: 60vh;
+                width: 100%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                gap: 2vw;
+                margin-top: 3vh;
+            }
+
+            .page1 .sections .section{
+                height: 90%;
+                width: 25%;
+                background-color: rgb(255, 255, 255);
+                box-shadow: 10px 10px 10px #00000051;
+                border-radius: 5px;
+                padding: 3vh;
+                transition: all ease 0.5s;
+            }
+
+            .page1 .sections .section img{
+                height: 100%;
+                width: 100%;
+                object-fit: cover;
+                object-position: top;
+            }
+            .page1 .sections .section:first-child{
+                padding: 0px;
+                overflow: hidden;
+            }
+
+            .page1 .sections .section h1{
+                color: green;
+                text-transform: capitalize;
+                margin-bottom: 3vh;
+                font-weight: 500;
+            }
+
+            .page1 .sections .section:hover h1{
+                color: red;
+            }
+
+            .page1 .sections .section:hover{
+                box-shadow: 10px 10px 10px #00000023;
+            }
+
+            .page1 .sections .section h4{
+                color: rgba(0, 0, 0, 0.526);
+                text-transform: capitalize;
+                padding-bottom: 2vh;
+                margin-bottom: 2vh;
+                border-bottom: 1px solid #00000023;
+                font-weight: 500;
+                cursor: pointer;
+            }
+
+            .page2{
+                min-height: 100vh;
+                width: 100%;
+            }
+
+            .page2 .page2-upper{
+                display: flex;
+                align-items: flex-start;
+                justify-content: center;
+                gap: 2vw;
+                margin-top: 4vh;
+                position: relative;
+            }
+
+            .page2 .page2-upper img{
+                width: 51vw;
+                margin-left: 2.5vw;
+                border-radius: 5px;
+            }
+
+            .page2 .page2-upper .section{
+                height: 55.3vh;
+                width: 25%;
+                background-color: rgb(255, 255, 255);
+                box-shadow: 10px 10px 10px #00000051;
+                border-radius: 5px;
+                padding: 3vh;
+                transition: all ease 0.5s;
+            }
+
+            .page2 .section h1{
+                color: green;
+                text-transform: capitalize;
+                margin-bottom: 3vh;
+                font-weight: 500;
+            }
+
+            .page2 .section:hover h1{
+                color: red;
+            }
+
+            .page2 .section:hover{
+                box-shadow: 10px 10px 10px #00000023;
+            }
+
+            .page2 .section h4{
+                color: rgba(0, 0, 0, 0.526);
+                text-transform: capitalize;
+                padding-bottom: 2vh;
+                margin-bottom: 2vh;
+                border-bottom: 1px solid #00000023;
+                font-weight: 500;
+                cursor: pointer;
+            }
+
+            .page2 .image .details{
+                position: absolute;
+                top: 4%;
+                left: 13%;
+                color: white;
+            }
+
+            .page2 .image .details h1,h3{
+                font-weight: 500;
+            }
+
+            .ad-landscape{
+                height: 40vh;
+                width: 90%;
+                margin: 2vh;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                border-radius: 5px;
+                overflow: hidden;
+            }
+
+            .page2 .page2-lower .sections{
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                gap: 2vw;
+                margin-top: 7vh;
+            }
+
+            .page2 .page2-lower .sections .section{
+                position: relative;
+                height: 55vh;
+                width: 24.8%;
+                overflow: hidden;
+                border-radius: 5px;
+                box-shadow: 0px 10px 10px #00000017;
+                box-shadow: 10px 10px 10px #00000051;
+                transition: all ease 0.5s;
+            }
+
+            .page2 .page2-lower .sections .section:hover{
+                box-shadow: 0px 10px 10px #00000017;
+            }
+
+
+            .page2 .page2-lower .section .details{
+                position: absolute;
+                top: 4%;
+                left: 13%;
+            }
+
+            .page2 .page2-lower .section:nth-child(2){
+                padding: 3vh;
+                background-color: white;
+            }
+
+            .page2 .page2-lower .section .details h1{
+                font-weight: 500;
+                font-size: 3vh;
+                color: black;
+                margin-left: -2vw;
+            }
+
+            .page2 .page2-lower img{
+                object-fit: cover;
+                height: 100%;
+                width: 100%;
+            }
+
+            .footer{
+                height: 40vh;
+                width: 100%;
+                margin-top: 10vh;
+            }
+
+            .footer .footer-upper{
+                height: 30vh;
+                width: 100%;
+                background-color: white;
+                display: flex;
+                align-items: flex-start;
+                justify-content: center;
+                gap: 3vw;
+                padding: 5vh;
+            }
+
+            .footer-upper .heading{
+                display: flex;
+                align-items: center;
+                gap: 1vw;
+                margin-bottom: 3vh;
+            }
+
+            .footer-upper .heading h1{
+                font-weight: 400;
+                text-transform: capitalize;
+            }
+
+            .footer-upper .descr{
+                font-size: 2vh;
+                font-family: gilroy;
+            }
+
+            .footer-lower{
+                text-align: center;
+                margin-top: 5vh;
+                cursor: pointer;
+            }
+
+            .tutorial-logo{
+                height:10vh;
+                width: 10vh;
+                background-color: rgb(243, 237, 183);
+                text-transform: capitalize;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                position: fixed;
+                text-align: center;
+                top: 16%;
+                right: 1%;
+                z-index: 96;
+                border-radius: 5px;
+                cursor: pointer;
+            }
+
+            .tutorial-logo h3 a{
+                text-decoration: none;
+                color: black;
+            }
+
+            .chat-logo{
+                height: 10vh;
+                width: 10vh;
+                border-radius: 5px;
+                overflow: hidden;
+                position: fixed;
+                z-index: 99;
+                bottom: 10%;
+                left: 0;
+                cursor: pointer;
+            }
+
+            .chat-logo img{
+                height: 100%;
+                width: 100%;
+                object-fit: cover;
+            }
+
+        </style>
+
+    </head>
+    <body>
+
+        <div class="tutorial-logo">
+            <h3><a href="tutorial.html">watch tutorial</a></h3>
+        </div>
+
+        <a class="chat-logo" href="TaxChatBot.html">
+            <img src="https://th.bing.com/th?id=OIP.MWsRR-VV9-Dz0aOk2JNH6AHaF_&w=278&h=224&c=8&rs=1&qlt=90&o=6&dpr=1.3&pid=3.1&rm=2" alt="alt"/>
+        </a>
+        
+        <div class="nav">
+            <div class="logo">
+                <img src="https://www.mpenagarpalika.gov.in/com.epalika.newframework/images/logo.png" alt="logo">
+            </div>
+            <div class="nav-center">
+                <ul>
+                    <li><i class="ri-home-3-line"></i></li>
+                    <li>About Us</li>
+                    <li><a href="QuickServices.jsp">Quick Services</a></li>
+                    <li>For Media</li>
+                    <li><a href="eServices.jsp">e-Services</a></li>
+                    <li>For Business</li>
+                    <li>For Partners</li>
+                    <li>EODB</li>
+                    <li><a href="EmployeesCorner.jsp">Employees Corner</a></li>
+                </ul>
+            </div>
+            <div class="nav-right">
+                <div class="content">content</div>
+                <div class="buttons">
+                    <button>hindi</button>
+                    <button>english</button>
+                </div>
+            </div>
+        </div>
+        <div class="main">
+            <div class="page1">
+                <div class="features">
+                    <img src="https://www.mpenagarpalika.gov.in/com.epalika.home/images/slides4.png" alt="alt"/>
+                    <div class="feature-buttons">
+                        <div class="button" id="button1"><a href="GarbageCollectionTax.jsp"></a></div>
+                        <div class="button" id="button2"><a href="PropertyTax.jsp"></a></div>
+                        <div class="button" id="button3"><a href="WaterTax.jsp"></a></div>
+                        <div class="button" id="button4"><a href="MarriageCertificate.jsp"></a></div>
+                        <div class="button" id="button5"><a href="BirthDeathCertificate.jsp"></a></div>
+                        <div class="button" id="button6"><a href="WaterTanker.jsp"></a></div>
+                        <div class="button" id="button7"><a href="HoardingLicense.jsp"></a></div>
+                        <div class="button" id="button8"><a href="TradingLicense.jsp"></a></div>
+                    </div>
+                    <div class="login-button"><a href="UserLogin.jsp">login</a></div>
+                    <div class="signup-button"><a href="UserRegistration.jsp">signup</a></div>
+                </div>
+                <div class="sections">
+                    <div class="section">
+                        <img src="https://www.adgully.com/img/800/202102/solarroof-campaign-creative-1.jpg">
+                    </div>
+                    <div class="section">
+                        <h1>media</h1>
+                        <h4>corrigendum/advertisement for post of chairperson...</h4>
+                        <h4>notice - </h4>
+                    </div>
+                    <div class="section">
+                        <h1>quick links</h1>
+                        <h4>MPUDC</h4>
+                        <h4>RERA</h4>
+                        <h4>BRTS</h4>
+                        <h4>Madhya Pradesh Metro Rail Corporation</h4>
+                        <h4>Smart Cities</h4>
+                    </div>
+                </div>
+            </div>
+            <div class="page2">
+                <div class="page2-upper">
+                    <div class="image">
+                        <img src="https://www.mpenagarpalika.gov.in/com.epalika.home/images/slidesm1.png?rid=ce01c6ccb47309d80e2dc15c50befea2" alt="alt"/>
+                        <div class="details">
+                            <h1>Better Governance through skills and talents</h1>
+                            <h3>My Beautiful Madhya Pradesh</h3>
+                        </div>
+                    </div>
+                    <div class="section">
+                        <h1>recent news</h1>
+                        <h4>notice regarding the proceedings of reservation...</h4>
+                        <h4>atma nirbhar madhya pradesh road map...</h4>
+                    </div>
+                    <div class="page2-lower"></div>
+                </div>
+                <div class="ad-landscape">
+                    <img src="https://khetigaadi.com/images/campaign-banner/mobile/khetiguru-ad.jpg" alt="">
+                </div>
+                <div class="page2-lower">
+                    <div class="sections">
+                        <div class="section">
+                            <img src="https://www.mpenagarpalika.gov.in/com.epalika.home/images/sidecontentsmall.png?rid=ce01c6ccb47309d80e2dc15c50befea2" alt="">
+                            <div class="details">
+                                <h1>MP e-NagarPalika App. Try it out.</h1>
+                            </div>
+                        </div>
+                        <div class="section">
+                            <h1>Important Links</h1>
+                            <h4>National Voter's service portal</h4>
+                            <h4>India Post</h4>
+                            <h4>Aadhar</h4>
+                            <h4>Digital India</h4>
+                            <h4>Ministry of Urban Development, Govt. of India</h4>
+                        </div>
+                        <div class="section">
+                            <img src="https://www.mpenagarpalika.gov.in/com.epalika.home/images/slidesm2.png?rid=ce01c6ccb47309d80e2dc15c50befea2" alt="">
+                            <div class="details">
+                                <h1>Historic Monuments</h1>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="footer">
+                <div class="footer-upper">
+                    <div class="footer-part">
+                        <div class="heading">
+                            <h1>locate us</h1>
+                            <img src="https://www.mpenagarpalika.gov.in/com.epalika.newframework/images/locion.png" alt="">
+                        </div>
+                        <div class="descr">
+                            <p>Directorate, Urban Administration & Development, <br>Palika Bhawan,<br>Shivaji Nagar, Bhopal,<br>Madhya Pradesh 462016</p>
+                        </div>
+                    </div>
+                    <div class="footer-part">
+                        <div class="heading">
+                            <h1>contact us</h1>
+                            <img src="https://www.mpenagarpalika.gov.in/com.epalika.newframework/images/callin.png" alt="">
+                        </div>
+                        <div class="descr">
+                            <p>Call 18002335522, our central 24x7 helpline number in <br>case of any emergencies or to register complaints</p>
+                        </div>
+                    </div>
+                    <div class="footer-part">
+                        <div class="heading">
+                            <h1>connect with us</h1>
+                            <img src="https://www.mpenagarpalika.gov.in/com.epalika.newframework/images/chatin.png" alt="">
+                        </div>
+                        <div class="descr">
+                            <p>follow us on- <br>twitter: @mpurbandeptt<br>facebook: @urbandeptmp
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="footer-lower">
+                    <p>Privacy  |  Disclaimer  |  Contact Us  |  Help  |  Accessibility Statement  |  Site Map  |  Website Policies  |  FAQ's General  |  MP Census 2011  |  Satat Portal  |  Sugam Portal</p>
+                </div>
+            </div>
+            
+        </div>
+
+    </body>
+</html>

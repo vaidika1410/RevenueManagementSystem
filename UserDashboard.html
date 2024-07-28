@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<!--
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit this template
+-->
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <style>
+
+            .dashboard{
+                height: 100vh;
+                width: 100%;
+                display: flex;
+                background-color: #E0ECF8;
+                font-family: gilroy;
+            }
+
+            .dashboard .left{
+                width: 30%;
+                height: 90%;
+                margin: 2vh;
+                border-radius: 15px;
+                background-color: white;
+                overflow: hidden;
+            }
+
+            .dashboard .left .left-upper{
+                height: 10vh;
+                width: 100%;
+                padding: 2vh;
+                display: flex;
+                align-items: center;
+                justify-content: flex-start;
+                gap: 1vw;
+                border-bottom: 1px solid #88888861;
+            }
+
+            .dashboard .left .left-upper .user{
+                height: 6vh;
+                width: 6vh;
+                border-radius: 50%;
+                background-color: rgb(120, 120, 120);
+            }
+
+            .dashboard .left .left-lower{
+                margin-left: -3vw;
+                padding: 3vh;
+            }
+
+            .dashboard .left .left-lower ul li{
+                list-style: none;
+                line-height: 8vh;
+                border-bottom: 1px solid #000;
+            }
+            .dashboard .left .left-lower ul li:last-child{
+                border: none;
+            }
+            .dashboard .left .left-lower ul li a{
+                text-decoration: none;
+                color: black;
+                text-transform: capitalize;
+            }
+
+            .dashboard .right{
+                height: 100vh;
+                width: 100%;
+                display: flex;
+                align-items: center;
+                gap: 3vw;
+            }
+
+            .dashboard .right .cards{
+                height: 50vh;
+                width: 20vw;
+                border-radius: 15px;
+                box-shadow: 10px 10px 10px #00000086, inset 10px 10px 10px #f3f3f3;
+                background-color: white;
+                padding: 2vh;
+                text-transform: capitalize;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="dashboard">
+            <div class="left">
+                <div class="left-upper">
+                    <div class="user"></div>
+                    <div class="username">
+                        <h4>Vaidika Kaul</h4>
+                    </div>
+                </div>
+                <div class="left-lower">
+                    <ul>
+                        <li><a href="#">check payment status</a></li>
+                        <li><a href="#">apply for hoarding license</a></li>
+                        <li><a href="#">apply for trading license</a></li>
+                        <li><a href="#">pay property taxes</a></li>
+                        <li><a href="#">pay water taxes</a></li>
+                        <li><a href="#">apply for water tanker</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="right">
+                <div class="cards">
+                    <h1>total revenue generated</h1>
+                    <h3>property</h3>
+                    <h3>garbage</h3>
+                    <h3>water</h3>
+                    <h3>others</h3>
+                </div>
+                <div class="cards">
+                    <h1>Expected Revenue</h1>
+                </div>
+                <div class="cards">
+                    <h1></h1>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
